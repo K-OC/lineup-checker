@@ -12,10 +12,15 @@ As of today and injury checker has been added to this tool. A refactoring of the
 <ul>
   <li>clone repo</li>
   <li>cd lineup-checker</li>
-  <li>for first use run npm i
+  <li>for first use replace players in json file with players from your own team
 </li>
-  <li>node app.js
+<li>run npm i</li>
+//currently runs lineup checker
+  <li>node app.js 
 </li>
-<li>observe CSV generated in project folder
+// update injury status
+<li>
+node getInjuries.js
 </li>
+<li>observe JSON file has updated</li>
 </ul>
