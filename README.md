@@ -9,9 +9,9 @@ Basic tool for checking lineups. I noticed in my Yahoo Fantasy App that players 
 <ul>
   <li>clone repo</li>
   <li>cd lineup-checker</li>
-  <li>for first use run `npm i`
+  <li>for first use run npm i
 </li>
-  <li>`node app.js`
+  <li>node app.js
 </li>
 <li>observe CSV generated in project folder
 </li>
