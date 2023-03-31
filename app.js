@@ -39,7 +39,7 @@ async function updateStartingLineup() {
   }
 
   // Write updated data to myTeam.json file
-  fs.writeFile("./myTeam.json", JSON.stringify(myTeam), (err) => {
+  fs.writeFile("./myTeam.json", JSON.stringify(myTeam, null, 2), (err) => {
     if (err) {
       console.error("Error writing to myTeam.json:", err);
     } else {
@@ -51,55 +51,3 @@ async function updateStartingLineup() {
 }
 
 updateStartingLineup();
-
-
-
-
-// const myTeam = [
-//   "Alejandro Kirk",
-//   "José Abreu",
-//   "Tommy Edman",
-//   "Ty France",
-//   "Trea Turner",
-//   "Cedric Mullins",
-//   "Bryan Reynolds",
-//   "Amed Rosario",
-//   "Alex Verdugo",
-//   "Luis García",
-//   "Santiago Espinal",
-//   "Luis Arraez",
-//   "Trey Mancini",
-//   "Gerrit Cole",
-//   "Justin Verlander",
-//   "Daniel Bard",
-//   "Alex Lange",
-//   "Framber Valdez",
-//   "Logan Webb",
-//   "José Urquidy",
-//   "Paul Sewald",
-//   "Jeffrey Springs",
-//   "Luis Garcia",
-// ];
-// const andrewsTeam = [
-//   "Gabriel Moreno",
-//   "Christian Walker",
-//   "Andrés Giménez",
-//   "Austin Riley",
-//   "Oneil Cruz",
-//   "Julio Rodríguez",
-//   "Yordan Alvarez",
-//   "Jake McCarthy",
-//   "Nick Castellanos",
-//   "Ke'Bryan Hayes",
-//   "Wander Franco",
-//   "Anthony Rizzo",
-//   "Andrew Benintendi",
-//   "Anthony Volpe",
-//   "Trevor Story",
-//   "Sandy Alcantara",
-//   "Brandon Woodruff",
-//   "Josh Hader",
-//   "Félix Bautista",
-//   "Julio Urías",
-//   "David Robertson",
-// ];

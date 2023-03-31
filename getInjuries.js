@@ -46,7 +46,7 @@ async function updateInjuries(results, myTeam) {
     }
   
     // Write updated data to myTeam.json file
-    fs.writeFile('./myTeam.json', JSON.stringify(myTeam), err => {
+    fs.writeFile('./myTeam.json', JSON.stringify(myTeam, null, 2), err => {
       if (err) {
         console.error('Error writing to myTeam.json:', err);
       } else {
