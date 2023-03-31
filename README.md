@@ -15,12 +15,11 @@ As of today and injury checker has been added to this tool. A refactoring of the
   <li>for first use replace players in json file with players from your own team
 </li>
 <li>run npm i</li>
-//currently runs lineup checker
-  <li>node app.js 
+  <li>node app.js - currently runs lineup checker
+
 </li>
-// update injury status
 <li>
-node getInjuries.js
+node getInjuries.js -- update injury status
 </li>
 <li>observe JSON file has updated</li>
 </ul>
