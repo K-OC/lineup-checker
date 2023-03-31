@@ -5,8 +5,14 @@ Basic tool for checking lineups. I noticed in my Yahoo Fantasy App that players 
 
 # to use
 
-clone repo
-cd lineup-checker
-for first use run `npm i`
-`node app.js`
-observe CSV generated in project folder
+
+<ul>
+  <li>clone repo</li>
+  <li>cd lineup-checker</li>
+  <li>for first use run `npm i`
+</li>
+  <li>`node app.js`
+</li>
+<li>observe CSV generated in project folder
+</li>
+</ul>
