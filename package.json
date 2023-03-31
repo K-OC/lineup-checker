@@ -1,7 +1,7 @@
 {
-  "name": "qotd-hacker",
+  "name": "lineup-checker",
   "version": "1.0.0",
-  "description": "make your voice heard",
+  "description": "check list of players against daily lineups",
   "main": "app.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
@@ -9,11 +9,8 @@
   "author": "dudgy",
   "license": "ISC",
   "dependencies": {
-    "chai": "^4.3.7",
     "fs": "^0.0.1-security",
     "json2csv": "^6.0.0-alpha.2",
-    "mocha": "^10.2.0",
-    "puppeteer": "^19.8.2",
-    "selenium-webdriver": "^4.8.2"
+    "puppeteer": "^19.8.2"
   }
 }
