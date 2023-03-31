@@ -1,56 +1,11 @@
 const puppeteer = require("puppeteer");
 const fs = require("fs");
-(async () => {
+const myTeam = require("./myTeam.json");
+
+async function updateStartingLineup() {
   const browser = await puppeteer.launch();
   const page = await browser.newPage();
-  const myTeam = [
-    "Alejandro Kirk",
-    "José Abreu",
-    "Tommy Edman",
-    "Ty France",
-    "Trea Turner",
-    "Cedric Mullins",
-    "Bryan Reynolds",
-    "Amed Rosario",
-    "Alex Verdugo",
-    "Luis García",
-    "Santiago Espinal",
-    "Luis Arraez",
-    "Trey Mancini",
-    "Gerrit Cole",
-    "Justin Verlander",
-    "Daniel Bard",
-    "Alex Lange",
-    "Framber Valdez",
-    "Logan Webb",
-    "José Urquidy",
-    "Paul Sewald",
-    "Jeffrey Springs",
-    "Luis Garcia",
-  ];
-  const andrewsTeam = [
-    "Gabriel Moreno",
-    "Christian Walker",
-    "Andrés Giménez",
-    "Austin Riley",
-    "Oneil Cruz",
-    "Julio Rodríguez",
-    "Yordan Alvarez",
-    "Jake McCarthy",
-    "Nick Castellanos",
-    "Ke'Bryan Hayes",
-    "Wander Franco",
-    "Anthony Rizzo",
-    "Andrew Benintendi",
-    "Anthony Volpe",
-    "Trevor Story",
-    "Sandy Alcantara",
-    "Brandon Woodruff",
-    "Josh Hader",
-    "Félix Bautista",
-    "Julio Urías",
-    "David Robertson",
-  ];
+
   await page.goto("https://www.baseballpress.com/lineups");
 
   // wait for the lineup table to be loaded
@@ -72,27 +27,79 @@ const fs = require("fs");
     return players;
   });
 
-  function searchLineup(lineup, players) {
-    // Create an array to hold the results
-    const results = [["Player Name", "Found in Lineup"]];
+  for (let i = 0; i < myTeam.length; i++) {
+    const player = myTeam[i];
+    const found = playerNames.includes(player.name);
 
-    // Loop through each player in the second list
-    for (const player of players) {
-      // Check if the player is present in the first list
-      const found = lineup.includes(player);
-
-      // Add a new row to the results array with the player name and whether they were found
-      results.push([player, found ? "true" : "false"]);
+    if (found) {
+      player.starting_lineup = true;
+    } else {
+      player.starting_lineup = false;
     }
-
-    // Write the results to a CSV file
-    const csv = results.map((row) => row.join(",")).join("\n");
-    fs.writeFileSync("results.csv", csv);
-
-    // Return the results array for further processing if needed
-    return results;
   }
 
-  searchLineup(playerNames, andrewsTeam);
+  // Write updated data to myTeam.json file
+  fs.writeFile("./myTeam.json", JSON.stringify(myTeam), (err) => {
+    if (err) {
+      console.error("Error writing to myTeam.json:", err);
+    } else {
+      console.log("myTeam.json updated successfully");
+    }
+  });
+
   await browser.close();
-})();
+}
+
+updateStartingLineup();
+
+
+
+
+// const myTeam = [
+//   "Alejandro Kirk",
+//   "José Abreu",
+//   "Tommy Edman",
+//   "Ty France",
+//   "Trea Turner",
+//   "Cedric Mullins",
+//   "Bryan Reynolds",
+//   "Amed Rosario",
+//   "Alex Verdugo",
+//   "Luis García",
+//   "Santiago Espinal",
+//   "Luis Arraez",
+//   "Trey Mancini",
+//   "Gerrit Cole",
+//   "Justin Verlander",
+//   "Daniel Bard",
+//   "Alex Lange",
+//   "Framber Valdez",
+//   "Logan Webb",
+//   "José Urquidy",
+//   "Paul Sewald",
+//   "Jeffrey Springs",
+//   "Luis Garcia",
+// ];
+// const andrewsTeam = [
+//   "Gabriel Moreno",
+//   "Christian Walker",
+//   "Andrés Giménez",
+//   "Austin Riley",
+//   "Oneil Cruz",
+//   "Julio Rodríguez",
+//   "Yordan Alvarez",
+//   "Jake McCarthy",
+//   "Nick Castellanos",
+//   "Ke'Bryan Hayes",
+//   "Wander Franco",
+//   "Anthony Rizzo",
+//   "Andrew Benintendi",
+//   "Anthony Volpe",
+//   "Trevor Story",
+//   "Sandy Alcantara",
+//   "Brandon Woodruff",
+//   "Josh Hader",
+//   "Félix Bautista",
+//   "Julio Urías",
+//   "David Robertson",
+// ];
