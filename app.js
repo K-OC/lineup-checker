@@ -33,6 +33,7 @@ async function updateStartingLineup() {
 
     if (found) {
       player.starting_lineup = true;
+      console.log(player);
     } else {
       player.starting_lineup = false;
     }
